@@ -18,19 +18,20 @@ jobs:
         with:
           node-version: '24'
           
-      # If using LaTeX, compile PDF (optional if already generated)
-      - name: Compile LaTeX to PDF
+      # Uses .latexmkrc: build files go to build/, the PDF stays at the top level
+      - name: Compile academic CV
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: cv.tex  # change to your file
+          root_file: Mayank_Raj_Academic_CV.tex
 
       - name: Clone website repo
         run: |
           git clone https://x-access-token:${{ secrets.REPO_ACCESS }}@github.com/m-raj/m-raj.github.io.git
 
+      # The website's /cv/ page embeds /cv.pdf
       - name: Copy PDF to website repo
         run: |
-          cp cv.pdf m-raj.github.io/cv.pdf
+          cp Mayank_Raj_Academic_CV.pdf m-raj.github.io/cv.pdf
 
       - name: Commit and push changes
         run: |
@@ -38,5 +39,5 @@ jobs:
           git config user.name mraj
           git config user.email mraj@caltech.edu
           git add cv.pdf
-          git commit -m "Update CV PDF"
-          git push
+          # Skip the commit when the PDF hasn't changed
+          git diff --cached --quiet || (git commit -m "Update CV PDF" && git push)
