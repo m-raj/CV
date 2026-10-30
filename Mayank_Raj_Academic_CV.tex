@@ -87,31 +87,22 @@
 
 \begin{document}
 
-\name{{\LARGE \sc {\Huge M}AYANK {\Huge \sc R}AJ } \vspace*{.1in} }
-% \address{mraj@caltech.edu}
-% \title{}
+% Name on the left, contact info right-aligned; both sit above the rule.
+\name{{\LARGE \sc {\Huge M}AYANK {\Huge \sc R}AJ}\hfill
+{\normalfont\normalsize
+  \begin{tabular}[b]{@{}r@{}}
+    mraj@caltech.edu                                  \\
+    +1-(626)-628-5526                                 \\
+    Website: \href{https://m-raj.github.io}{m-raj.github.io}   \\
+    GitHub: \href{https://github.com/m-raj}{github.com/m-raj} \\
+    LinkedIn: \href{https://www.linkedin.com/in/mraj227}{linkedin.com/in/mraj227}
+  \end{tabular}}%
+% res.cls makes the header line \hoffset wider than the page; pull back so it ends at the rule
+\hspace*{\hoffset}}
 \begin{resume}
 
-\section{\sc Contact Information}
-
-\begin{minipage}[t]{\linewidth}
-mraj@caltech.edu, mayank227raj@gmail.com\\
-+1-(626)-628-5526\\
-Personal Website: \href{https://m-raj.github.io}{m-raj.github.io}\\
-Github: \href{https://github.com/m-raj}{github.com/m-raj}\\
-LinkedIn: \href{https://www.linkedin.com/in/mraj227}{linkedin.com/in/mraj227}
-\end{minipage}
-% \hfill
-% \begin{minipage}[t]{0.25\textwidth}
-% \begin{flushright}
-%     +1 (626)-628-5526\\
-% \texttt{mraj@caltech.edu}
-% \end{flushright}
-% \end{minipage}
-
-
-\input{sections/education}
 \input{sections/research_interest}
+\input{sections/education}
 \input{sections/employment}
 \input{sections/internships}
 \input{sections/pubs}
