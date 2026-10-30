@@ -1,0 +1,42 @@
+name: Publish CV to Website
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout CV repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          
+      # If using LaTeX, compile PDF (optional if already generated)
+      - name: Compile LaTeX to PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: cv.tex  # change to your file
+
+      - name: Clone website repo
+        run: |
+          git clone https://x-access-token:${{ secrets.REPO_ACCESS }}@github.com/m-raj/m-raj.github.io.git
+
+      - name: Copy PDF to website repo
+        run: |
+          cp cv.pdf m-raj.github.io/cv.pdf
+
+      - name: Commit and push changes
+        run: |
+          cd m-raj.github.io
+          git config user.name mraj
+          git config user.email mraj@caltech.edu
+          git add cv.pdf
+          git commit -m "Update CV PDF"
+          git push

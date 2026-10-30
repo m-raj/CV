@@ -1,0 +1,6 @@
+# LaTeX build output
+build/
+*.synctex.gz
+
+# macOS
+.DS_Store

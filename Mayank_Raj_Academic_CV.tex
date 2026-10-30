@@ -1,0 +1,125 @@
+\let\nofiles\relax
+\documentclass[margin, line]{res}
+\usepackage{calc}
+% \documentclass[margin,line,pifont,palatino]{res}
+
+\usepackage{pifont}
+\usepackage[latin1] {inputenc}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+
+\usepackage[backend=biber, style=numeric, sorting=ydnt, url=false,defernumbers=true]{biblatex}
+\addbibresource{bib/publications.bib}
+\defbibheading{publications}[\bibname]{%
+  % LaTeX formatting commands here
+}
+\renewbibmacro{in:}{}
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifitemannotation{highlight}{\textbf{#1}}{#1}}
+
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifitemannotation{highlight}{\textbf{#1}}{#1}}
+
+\DeclareSortingTemplate{ydndt}{
+  \sort{ \field{presort} }
+  \sort[final]{ \field{sortkey} }
+  \sort[direction=descending]{ \field{sortyear} \field{year} }
+  \sort[direction=descending]{ \field{sortname} \field{author} }
+  \sort[direction=descending]{ \field{sorttitle} \field{title} }
+}
+
+% Track the total number of entries in each refsection
+\AtDataInput{%
+  \csnumgdef{entrycount:\therefsection}{%
+    \csuse{entrycount:\therefsection}+1}}
+
+% Redefine the label to subtract the current number from the total
+\DeclareFieldFormat{labelnumber}{%
+  \number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
+
+\newcommand{\highlight}[1]{\textbf{#1}}
+
+
+
+
+\topmargin -0.35in
+%\oddsidemargin -.5in
+%\evensidemargin -.5in
+%\textwidth=6.0in
+ \textheight=9.50in
+%\itemsep=0in
+%\parsep=0in
+\usepackage{fancyhdr}
+%\topmargin=0in
+%\textheight=8.5in
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+%\cfoot{\thepage}
+%\lfoot{\textit{\footnotesize Research Statement}}
+% \rfoot{{\footnotesize Curriculum Vitae, Amanda Akin, \thepage}}
+
+\newlength{\listtwotextwidth}
+\setlength{\listtwotextwidth}{\linewidth}
+\addtolength{\listtwotextwidth}{-5 cm} % reserve space for date
+\newcommand{\listtwitem}[2]{%
+  \item
+  \noindent
+  \parbox[t]{\listtwotextwidth}{#2}
+  \hfill
+  \makebox[2cm][r]{#1}%
+}
+
+\newenvironment{list1}{
+  \begin{list}{\ding{113}}{%
+      \setlength{\itemsep}{0in}
+      \setlength{\parsep}{0in} \setlength{\parskip}{0in}
+      \setlength{\topsep}{0in} \setlength{\partopsep}{0in}
+      \setlength{\leftmargin}{0.4in}}}
+      {\end{list}}
+\newenvironment{list2}{
+  \begin{list}{\ding{113}}{%
+      \setlength{\itemsep}{0in}
+      \setlength{\parsep}{0in} \setlength{\parskip}{0in}
+      \setlength{\topsep}{0in} \setlength{\partopsep}{0in}
+      \setlength{\leftmargin}{0.2in}}}
+      {\end{list}}
+
+\begin{document}
+
+\name{{\LARGE \sc {\Huge M}AYANK {\Huge \sc R}AJ } \vspace*{.1in} }
+% \address{mraj@caltech.edu}
+% \title{}
+\begin{resume}
+
+\section{\sc Contact Information}
+
+\begin{minipage}[t]{\linewidth}
+mraj@caltech.edu, mayank227raj@gmail.com\\
++1-(626)-628-5526\\
+Personal Website: \href{https://m-raj.github.io}{m-raj.github.io}\\
+Github: \href{https://github.com/m-raj}{github.com/m-raj}\\
+LinkedIn: \href{https://www.linkedin.com/in/mraj227}{linkedin.com/in/mraj227}
+\end{minipage}
+% \hfill
+% \begin{minipage}[t]{0.25\textwidth}
+% \begin{flushright}
+%     +1 (626)-628-5526\\
+% \texttt{mraj@caltech.edu}
+% \end{flushright}
+% \end{minipage}
+
+
+\input{sections/education}
+\input{sections/research_interest}
+\input{sections/employment}
+\input{sections/internships}
+\input{sections/pubs}
+\input{sections/honors}
+\input{sections/teaching}
+\input{sections/relevent_coursework}
+\input{sections/conferences_and_workshops}
+\input{sections/plang}
+\input{sections/references}
+\end{resume}
+\end{document}
