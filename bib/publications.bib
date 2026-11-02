@@ -13,7 +13,11 @@ author+an = {1=highlight},
 	url = {https://doi.org/10.1007/s40192-021-00227-2},
 	volume = {10},
 	year = {2021},
-	bdsk-url-1 = {https://doi.org/10.1007/s40192-021-00227-2}}
+	bdsk-url-1 = {https://doi.org/10.1007/s40192-021-00227-2},
+	verba = {https://m-raj.github.io/projects/strain-field-unet/},
+	usera = {Trained a UNet deep-learning model to predict full local strain fields in two-phase composites under uniaxial tension.},
+	userb = {Generated synthetic microstructure datasets to train and test the model.},
+	userc = {Analyzed how dataset design affects the robustness of deep-learning models for strain localization.}}
 
 a
 
@@ -24,8 +28,12 @@ a
       eprint={2111.10751},
       archivePrefix={arXiv},
       primaryClass={cs.CE},
-      url={https://arxiv.org/abs/2111.10751}, 
-    author+an={1=highlight}
+      url={https://arxiv.org/abs/2111.10751},
+    author+an={1=highlight},
+    verba={https://m-raj.github.io/projects/pinn-thermomechanics/},
+    usera={First application of physics-informed neural networks (PINNs) to coupled thermo-mechanics problems in functionally graded materials.},
+    userb={Studied how training data, network architecture and loss-function design affect PINN accuracy.},
+    userc={Reached R$^2 > 99\%$ for displacement and temperature against analytical and finite element solutions.}
 }
 @article{SINGH2026106583,
 title = {Effective behavior of heterogeneous media governed by strain gradient elasticity},
@@ -38,7 +46,10 @@ doi = {https://doi.org/10.1016/j.jmps.2026.106583},
 url = {https://www.sciencedirect.com/science/article/pii/S0022509626000839},
 author = {Harkirat Singh and Mayank Raj and Kaushik Bhattacharya},
 keywords = {Heterogeneous materials, Strain gradient elasticity, Nonlocal elasticity, Fractional gradient elasticity},
-author+an={2=highlight}
+author+an={2=highlight},
+usera = {Showed through numerical experiments that strain gradient elasticity is not preserved under averaging of heterogeneous media.},
+userb = {Described the effective behavior with fractional strain gradient elasticity, giving scaling laws between classical and strain-gradient limits.},
+userc = {Built a data-driven model of the effective behavior across length scales using a Fourier neural operator.}
 }
 
 @Article{jcs4020035,
@@ -52,7 +63,11 @@ ARTICLE-NUMBER = {35},
 URL = {https://www.mdpi.com/2504-477X/4/2/35},
 ISSN = {2504-477X},
 DOI = {10.3390/jcs4020035},
-author+an={1=highlight}
+author+an={1=highlight},
+verba = {https://m-raj.github.io/projects/nacre-composites/},
+usera = {Computed the shear modulus of nacre's organic matrix (1.25--1.45 GPa) with atomistic molecular dynamics simulations.},
+userb = {Ran 3D finite element simulations of nacre-like composites while varying the mineral and organic composition.},
+userc = {Found that 10--20\% organic content by volume gives high toughness, guiding the design of synthetic nacre-like materials.}
 }
 
 @article{RAJ2026106807,
@@ -67,6 +82,10 @@ url = {https://www.sciencedirect.com/science/article/pii/S002250962600308X},
 author = {Mayank Raj and Lianghao Cao and Andrew Stuart and Kaushik Bhattacharya},
 keywords = {Polyconvex neural network, Crystal plasticity, Internal variables, Numerical homogenisation},
 author+an={1=highlight},
+verba = {https://m-raj.github.io/projects/neural-constitutive-laws/},
+usera = {Built a causal, energy-based neural-network framework for learning history-dependent constitutive laws that is thermodynamically consistent and stable by construction.},
+userb = {Showed empirically, and proved under controllability assumptions, that the learned internal variables are identifiable up to a linear transform.},
+userc = {Learned the averaged response of a polycrystalline magnesium cell with 2\% relative error, replacing costly multiscale (FE$^2$) simulations.},
 abstract = {The identification of constitutive laws is ubiquitous in engineering: in modeling of materials, where experimental data are fitted to mathematical models or learning surrogate models to beat the FE2 computational cost of multiscale numerical simulations. However, these models of constitutive laws, unless equipped with a energetic formulation, are not necessarily consistent with (a) the second law of thermodynamics; (b) stability of the material under extreme applied strain; and (c) the mathematical theory underpinning the existence of a solution of the non-linear momentum balance equation. In this work, we present a causal and energetic formulation, consistent with the aforementioned properties, of learning a history-dependent constitutive law. Moreover, we empirically discover, and, under controllability assumptions, theoretically show that the internal variables that are inferred from a learned constitutive model are identifiable up to a linear transform. This characterisation of the class of internal variables sheds light on an equivalence class of models that lead to the same stress-strain map. The framework is deployed to learn the Taylor-averaged response of a polycrystalline magnesium unit cell. We achieve a 2\% relative error in the prediction of the Taylor-averaged response.}
 }
 

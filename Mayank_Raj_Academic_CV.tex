@@ -14,6 +14,18 @@
   % LaTeX formatting commands here
 }
 \renewbibmacro{in:}{}
+% After the DOI / arXiv id, add a "Paper Link" hyperlink to the paper
+\DeclareFieldFormat{paperlink}{\href{#1}{\mbox{Paper Link}}}
+\renewbibmacro*{doi+eprint+url}{%
+  \iftoggle{bbx:doi}{\printfield{doi}}{}%
+  \newunit\newblock
+  \iftoggle{bbx:eprint}{\usebibmacro{eprint}}{}%
+  \newunit\newblock
+  \printfield[paperlink]{url}%
+  \setunit{\addcomma\space}%
+  \printfield[projectlink]{verba}}
+% "Project Website" link from the verba field, when the paper has a project page
+\DeclareFieldFormat{projectlink}{\href{#1}{\mbox{Project Website}}}
 \renewcommand*{\mkbibnamegiven}[1]{%
   \ifitemannotation{highlight}{\textbf{#1}}{#1}}
 
@@ -59,13 +71,10 @@
 %\lfoot{\textit{\footnotesize Research Statement}}
 % \rfoot{{\footnotesize Curriculum Vitae, Amanda Akin, \thepage}}
 
-\newlength{\listtwotextwidth}
-\setlength{\listtwotextwidth}{\linewidth}
-\addtolength{\listtwotextwidth}{-5 cm} % reserve space for date
 \newcommand{\listtwitem}[2]{%
   \item
   \noindent
-  \parbox[t]{\listtwotextwidth}{#2}
+  \parbox[t]{\linewidth-2cm}{#2}% text uses all width except the 2cm date box
   \hfill
   \makebox[2cm][r]{#1}%
 }
@@ -104,8 +113,8 @@
 \input{sections/research_interest}
 \input{sections/education}
 \input{sections/employment}
-\input{sections/internships}
 \input{sections/pubs}
+\input{sections/internships}
 \input{sections/honors}
 \input{sections/teaching}
 \input{sections/relevent_coursework}
